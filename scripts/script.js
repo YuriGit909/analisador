@@ -1,13 +1,4 @@
-// ADICIONAR()
-// input text: inumero
-// input button : addbutton
-// select : ivalores
-
-// RESUME()
-// input button : finalizar
-// div : resultado
-
-function adicionar(num) {
+function adicionar() {
     var numero = document.getElementById('inumero')
     var num = Number(numero.value)
 
@@ -27,20 +18,56 @@ function adicionar(num) {
                 opcao.remove()
                 removido = true    
             }
-        })
+        })   
             
         // CRIA UM NOVO OPTION DINAMICAMENTE A CADA CLIQUE DO USUÁRIO
         let option = document.createElement('option')
-        option.text = `Valor ${num} adicionado`
+        option.text = `Valor ${num} adicionado.`
         valores.appendChild(option)
+        
+        armazenarNumeros.push(num)
     }
 }
 
 var armazenarNumeros = []
 
-var finalizar = document.getElementById('finalizar')
+var finalizar = document.querySelector('input#finalizar')
+
 finalizar.addEventListener('click', () => {
-    var numAdd = armazenarNumeros.push()
-    var resultado = document.getElementById('res')
-    resultado.innerHTML = `<p>${numAdd}</p>`
+    if(armazenarNumeros.length === 0) {
+        window.alert('Nenhum número armazenado para finalizar')
+        } else {
+        var resultado = document.getElementById('resultado')
+
+        // SOMA DE TODOS OS DADOS DO ARRAY:
+        var soma = 0
+        for(var i = 0; i < armazenarNumeros.length; i++) {
+            soma += armazenarNumeros[i]
+        }
+
+        resultado.innerHTML = `
+        Ao todo, temos ${armazenarNumeros.length} número(s) cadastrado(s). <br><br>
+        O maior valor informado foi ${Math.max.apply(null, armazenarNumeros)} <br><br>
+        O menor valor informado foi ${Math.min.apply(null, armazenarNumeros)} <br><br>
+        Somando todos os valores, temos ${soma} <br><br>
+        A média dos valores digitados é ${(soma / armazenarNumeros.length).toFixed(2)} <br><br>
+        `
+    }
 })
+
+/*
+var limpar = document.querySelector('input#limpar')
+limpar.addEventListener('click', () => {
+    var numero = document.getElementById('inumero')
+    var valores = document.getElementById('ivalores')
+    var resultado = document.querySelector('input#resultado')
+    var opcao = document.querySelector('option#opcaoRemover')
+
+    if (numero.length != 0 || valores != '' || armazenarNumeros.length != 0) {
+        numero.value = ''
+        valores.innerHTML = ''
+        resultado.innerHTML = ''
+        armazenarNumeros.value = []
+    }
+})
+*/
