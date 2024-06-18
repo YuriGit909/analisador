@@ -8,8 +8,8 @@ function adicionar() {
         window.alert(`O número ${num} está fora dos limites do intervalo (1 a 100)`)
     } else {
         var valores = document.getElementById('ivalores')
-        let button = document.getElementById('addbutton')
         var opcao = document.getElementById('opcaoRemover')
+        let button = document.getElementById('addbutton')
         
         // CONDIÇÃO PARA REMOVER O OPTION INSERIDO NO HTML
         var removido = false
@@ -32,7 +32,6 @@ function adicionar() {
 var armazenarNumeros = []
 
 var finalizar = document.querySelector('input#finalizar')
-
 finalizar.addEventListener('click', () => {
     if(armazenarNumeros.length === 0) {
         window.alert('Nenhum número armazenado para finalizar')
@@ -46,11 +45,13 @@ finalizar.addEventListener('click', () => {
         }
 
         resultado.innerHTML = `
-        Ao todo, temos ${armazenarNumeros.length} número(s) cadastrado(s). <br><br>
-        O maior valor informado foi ${Math.max.apply(null, armazenarNumeros)} <br><br>
-        O menor valor informado foi ${Math.min.apply(null, armazenarNumeros)} <br><br>
-        Somando todos os valores, temos ${soma} <br><br>
-        A média dos valores digitados é ${(soma / armazenarNumeros.length).toFixed(2)} <br><br>
+        <ul>
+            <li>Ao todo, temos ${armazenarNumeros.length} número(s) cadastrado(s)</li>
+            <li>O maior valor informado foi ${Math.max.apply(null, armazenarNumeros)}</li>
+            <li>O menor valor informado foi ${Math.min.apply(null, armazenarNumeros)}</li>
+            <li>Somando todos os valores, temos ${soma}</li>
+            <li>A média dos valores digitados é ${(soma / armazenarNumeros.length).toFixed(2)}</li>
+        </ul>
         `
     }
 })

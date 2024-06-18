@@ -35,7 +35,13 @@ main {
     box-shadow: 2px 2px 5px rgb(0, 0, 0, .3);
 }
 
-main p {
+main li {
+    font-size: 1.1em;
+    padding: 5px;
+    list-style-position: inside;
+}
+
+main p#inicio {
     padding: 20px 0; 
     font-size: 1.1em;
 }
