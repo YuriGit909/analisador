@@ -12,6 +12,7 @@ function adicionar() {
         let button = document.getElementById('addbutton')
         
         // CONDIÇÃO PARA REMOVER O OPTION INSERIDO NO HTML
+        /*
         var removido = false
         button.addEventListener('click', () => {
             if(!removido) {
@@ -19,6 +20,7 @@ function adicionar() {
                 removido = true    
             }
         })   
+         */
             
         // CRIA UM NOVO OPTION DINAMICAMENTE A CADA CLIQUE DO USUÁRIO
         let option = document.createElement('option')
