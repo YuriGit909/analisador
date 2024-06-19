@@ -6,13 +6,16 @@ function adicionar() {
         window.alert('Preencha o campo de texto com um número entre 1 e 100')
     } else if (num < 1 || num > 100) {
         window.alert(`O número ${num} está fora dos limites do intervalo (1 a 100)`)
+    } else if (armazenarNumeros.indexOf(num) > -1) {
+        window.alert('O valor informado já se encontra presente na lista')
     } else {
         var valores = document.getElementById('ivalores')
-        var opcao = document.getElementById('opcaoRemover')
-        let button = document.getElementById('addbutton')
         
         // CONDIÇÃO PARA REMOVER O OPTION INSERIDO NO HTML
         /*
+        var opcao = document.getElementById('opcaoRemover')
+        let button = document.getElementById('addbutton')
+
         var removido = false
         button.addEventListener('click', () => {
             if(!removido) {
@@ -28,7 +31,7 @@ function adicionar() {
         valores.appendChild(option)
         
         armazenarNumeros.push(num)
-    }
+        }
 }
 
 var armazenarNumeros = []
