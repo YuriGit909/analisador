@@ -32,6 +32,9 @@ function adicionar() {
         
         armazenarNumeros.push(num)
         }
+
+        numero.value = ''
+        numero.focus()
 }
 
 var armazenarNumeros = []
