@@ -1,50 +1,48 @@
+var numero = document.getElementById('inumero')
+var valores = document.getElementById('ivalores')
+var finalizar = document.querySelector('input#finalizar')
+var resultado = document.getElementById('resultado')
+var armazenarNumeros = []
+
 function adicionar() {
-    var numero = document.getElementById('inumero')
+    // CONVERSÃO DOS DADOS RECEBIDOS NO INPUT PARA TIPO NUMÉRICCO
     var num = Number(numero.value)
 
     if (numero.value.length == 0) {
         window.alert('Preencha o campo de texto com um número entre 1 e 100')
-    } else if (num < 1 || num > 100) {
+    } 
+    else if (num < 1 || num > 100) {
         window.alert(`O número ${num} está fora dos limites do intervalo (1 a 100)`)
-    } else if (armazenarNumeros.indexOf(num) > -1) {
-        window.alert('O valor informado já se encontra presente na lista')
-    } else {
-        var valores = document.getElementById('ivalores')
-        
-        // CONDIÇÃO PARA REMOVER O OPTION INSERIDO NO HTML
-        /*
-        var opcao = document.getElementById('opcaoRemover')
-        let button = document.getElementById('addbutton')
+    } 
 
-        var removido = false
-        button.addEventListener('click', () => {
-            if(!removido) {
-                opcao.remove()
-                removido = true    
-            }
-        })   
-         */
-            
+    // ANALISA SE O NÚMERO JÁ EXISTE DENTRO DO ARRAY
+    else if (armazenarNumeros.indexOf(num) > -1) { 
+        window.alert('O valor informado já se encontra presente na lista')
+    } 
+    else {
+
         // CRIA UM NOVO OPTION DINAMICAMENTE A CADA CLIQUE DO USUÁRIO
         let option = document.createElement('option')
         option.text = `Valor ${num} adicionado.`
         valores.appendChild(option)
+
+        // LIMPA O CAMPO DE RESULTADO AO CLICAR NO BOTÃO DE ADICIONAR NOVAMENTE
+        resultado.innerHTML = ''
         
+        // JOGA OS NÚMEROS DIGITADOS PELO USUÁRIO NO ARRAY
         armazenarNumeros.push(num)
         }
 
+        // LIMPA O INPUT DE TEXTO A CADA CLIQUE NO BOTÃO DE ADICIONAR
         numero.value = ''
         numero.focus()
 }
 
-var armazenarNumeros = []
 
-var finalizar = document.querySelector('input#finalizar')
 finalizar.addEventListener('click', () => {
     if(armazenarNumeros.length === 0) {
         window.alert('Nenhum número armazenado para finalizar')
         } else {
-        var resultado = document.getElementById('resultado')
 
         // SOMA DE TODOS OS DADOS DO ARRAY:
         var soma = 0
@@ -63,20 +61,3 @@ finalizar.addEventListener('click', () => {
         `
     }
 })
-
-/*
-var limpar = document.querySelector('input#limpar')
-limpar.addEventListener('click', () => {
-    var numero = document.getElementById('inumero')
-    var valores = document.getElementById('ivalores')
-    var resultado = document.querySelector('input#resultado')
-    var opcao = document.querySelector('option#opcaoRemover')
-
-    if (numero.length != 0 || valores != '' || armazenarNumeros.length != 0) {
-        numero.value = ''
-        valores.innerHTML = ''
-        resultado.innerHTML = ''
-        armazenarNumeros.value = []
-    }
-})
-*/
